@@ -1,5 +1,4 @@
 nav {
-  .navbar-header {
     width: 100%;
     button, .navbar-brand {
       transition: opacity 0.15s;
@@ -10,13 +9,16 @@ nav {
     button:hover, .navbar-brand:hover {
       opacity: 0.8;
     }
-  }
-}s
+}
 
-.navbar-default, .navbar-toggle:focus, .collapsed, button.navbar-toggle {
+.navbar-expand-lg, .navbar-toggler:focus, .collapsed, button.navbar-toggler {
   background: $navbarColor !important;
   border: none;
   a {
     color: white !important;
   }
+}
+
+body {
+ margin-top: 50px;
 }
