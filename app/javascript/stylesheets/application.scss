@@ -10,3 +10,7 @@
 // Partials - main css files
 @import "partials/signup";
 @import "partials/layout/navigation";
+
+// Media queries for a responsive design
+@import "responsive/mobile.scss";
+@import "responsive/desktop.scss";
