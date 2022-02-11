@@ -3,6 +3,9 @@ nav {
     button, .navbar-brand {
       transition: opacity 0.15s;
     }
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
     button {
       margin-right: 0;
     }
@@ -58,6 +61,7 @@ body {
 .dropdown-toggle, .dropdown-menu {
   background: $navbarColor !important;
   border: none;
+  font-size: 1.5rem;
 }
 
 .dropdown-menu a:hover {
