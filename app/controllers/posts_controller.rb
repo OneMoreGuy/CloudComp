@@ -24,6 +24,19 @@ class PostsController < ApplicationController
     @posts = get_posts.paginate(page: params[:page])
   end
   def get_posts
-    Post.limit(30)
+    branch = params[:action]
+    search = params[:search]
+    tag = params[:tag]
+
+    if tag.blank? && search.blank?
+      posts = Post.by_branch(branch).all
+    elsif tag.blank? && search.present?
+      posts = Post.by_branch(branch).search(search)
+    elsif tag.present? && search.blank?
+      posts = Post.by_tag(branch, tag)
+    elsif tag.present? && search.present?
+      posts = Post.by_tag(branch, tag).search(search)
+    else
+  end
   end
 end
