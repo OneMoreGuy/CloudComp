@@ -14,6 +14,7 @@ import '../bootstrap_js_files.js'
 import '../stylesheets/application.scss'
 import './modal.js'
 import './style.js'
+import './infinite_scroll.js'
 
 Rails.start()
 Turbolinks.start()

@@ -22,6 +22,10 @@ class PostsController < ApplicationController
   def posts_for_branch(branch)
     @tags = Tag.where(branch: branch)
     @posts = get_posts.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'posts/posts_pagination_page' }
+    end
   end
   def get_posts
     branch = params[:action]
