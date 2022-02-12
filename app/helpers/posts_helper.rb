@@ -20,4 +20,11 @@ module PostsHelper
   def post_format_partial_path
     current_page?(root_path) ? '../views/posts/post/home_page' : '../views/posts/post/branch_page'
   end
+    def tag_field_partial_path
+      if params[:tag].present?
+        '../views/posts/branch/search_form/tag_field'
+      else
+        '../views/shared/empty_partial'
+    end
+  end
 end
