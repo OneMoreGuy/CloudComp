@@ -14,8 +14,8 @@ module PostsHelper
     end
   end
   # Logic for when there are no posts to display.
-  def no_posts_partial_path
-    @posts.empty? ? '../views/posts/branch/no_posts' : '../views/shared/empty_partial'
+  def no_posts_partial_path(posts)
+    posts.empty? ? 'posts/shared/no_posts' : 'shared/empty_partial'
   end
   def post_format_partial_path
     current_page?(root_path) ? '../views/posts/post/home_page' : '../views/posts/post/branch_page'

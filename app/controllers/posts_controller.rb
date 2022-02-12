@@ -1,6 +1,22 @@
 class PostsController < ApplicationController
+  before_action :redirect_if_not_signed_in, only: [:new]
   def show
     @post = Post.find(params[:id])
+  end
+  
+  def new
+    @branch = params[:branch]
+    @tags = Tag.where(branch: @branch)
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    if @post.save 
+      redirect_to post_path(@post) 
+    else
+      redirect_to root_path
+    end
   end
   
   # Sidebar button - hobby
@@ -28,19 +44,14 @@ class PostsController < ApplicationController
     end
   end
   def get_posts
-    branch = params[:action]
-    search = params[:search]
-    tag = params[:tag]
-
-    if tag.blank? && search.blank?
-      posts = Post.by_branch(branch).all
-    elsif tag.blank? && search.present?
-      posts = Post.by_branch(branch).search(search)
-    elsif tag.present? && search.blank?
-      posts = Post.by_tag(branch, tag)
-    elsif tag.present? && search.present?
-      posts = Post.by_tag(branch, tag).search(search)
-    else
+    PostsForBranchService.new({
+      search: params[:search],
+      tag: params[:tag],
+      branch: params[:action]
+    }).call
   end
+  def post_params
+    params.require(:post).permit(:content, :title, :tag_id)
+                       .merge(user_id: current_user.id)
   end
 end
