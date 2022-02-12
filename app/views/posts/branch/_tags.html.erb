@@ -1,0 +1,15 @@
+<% branch_path_name = "#{params[:action]}_posts_path" %>
+
+<div class="col-sm-12">
+  <ul class="tags-list">
+    <%= render all_tags_button_partial_path, 
+               branch_path_name: branch_path_name %>
+    <% @tags.each do |tag| %>
+      <li class="tag-item">
+        <%= link_to tag.name, 
+                    send(branch_path_name, tag: tag.name), 
+                    :class => ("selected-item" if params[:tag] == tag.name) %>
+      </li>
+    <% end %>
+  </ul>
+</div><!-- col-sm-12 -->
