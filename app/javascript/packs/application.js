@@ -15,6 +15,8 @@ import '../stylesheets/application.scss'
 import './modal.js'
 import './style.js'
 import './infinite_scroll.js'
+import './conversations/toggle_window.js'
+import './conversations/position_and_visibility.js'
 
 Rails.start()
 Turbolinks.start()
