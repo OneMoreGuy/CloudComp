@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_path if user_signed_in?
   end
   def opened_conversations_windows
-    @message="den antexw allo"
     if user_signed_in?
       # opened conversations
       session[:private_conversations] ||= []
