@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function() {
     hideShowChatWindow();
 });
 
-function positionChatWindows() {
+window.positionChatWindows = function() {
     chat_windows_count = $('.conversation-window').length;
     // if a new conversation window was added, 
     // set it as the last visible conversation window
@@ -37,7 +37,7 @@ function positionChatWindows() {
 }
 
 // Hides last conversation window whenever it is close to viewport's left side
-function hideShowChatWindow() {
+window.hideShowChatWindow = function() {
     // if there are no conversation windows, stop the function
     if ($('.conversation-window').length < 1) {
         return;
