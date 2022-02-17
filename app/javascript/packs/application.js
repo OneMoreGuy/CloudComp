@@ -15,6 +15,7 @@ import './infinite_scroll.js'
 import './conversations/toggle_window.js'
 import './conversations/position_and_visibility.js'
 import './conversations/conversation.js'
+import '../channels/shared/conversation.js'
 
 Rails.start()
 Turbolinks.start()
