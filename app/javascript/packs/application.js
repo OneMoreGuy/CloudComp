@@ -3,9 +3,6 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-//require("packs/style")
-//require("packs/modal")
-
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -17,6 +14,7 @@ import './style.js'
 import './infinite_scroll.js'
 import './conversations/toggle_window.js'
 import './conversations/position_and_visibility.js'
+import './conversations/conversation.js'
 
 Rails.start()
 Turbolinks.start()
