@@ -1,0 +1,12 @@
+<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <i class="fas fa-envelope" aria-hidden="true">
+    <span id="unseen-conversations"></span>
+  </i>
+</a>
+<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <% @all_conversations.each do |conversation| %>
+    <%= render partial: conversation_header_partial_path(conversation),
+               locals: { conversation: conversation, 
+                         user_id: current_user.id } %>
+  <% end %>
+</ul><!-- dropdown-menu -->
