@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_13_154125) do
+ActiveRecord::Schema.define(version: 2022_02_18_171621) do
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "contact_id"
+    t.boolean "accepted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_id"], name: "index_contacts_on_contact_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
