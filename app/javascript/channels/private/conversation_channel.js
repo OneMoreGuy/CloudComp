@@ -4,11 +4,10 @@ consumer.private_conversation = consumer.subscriptions.create("Private::Conversa
     connected() {
     	console.log("test");
     },
-    
+
     disconnected() {
-    
+
     },
-    
     received(data) {
         // if a link to the conversation in the conversations menu list exists
 		// move the link to the top of the conversations menu list
@@ -17,7 +16,6 @@ consumer.private_conversation = consumer.subscriptions.create("Private::Conversa
 		if (conversation_menu_link.length) {
 		    conversation_menu_link.prependTo('#conversations-menu ul');
 		}
-		
 		// set variables
 		var conversation = findConv(data['conversation_id'], 'p');
 		var conversation_rendered = ConvRendered(data['conversation_id'], 'p');
@@ -47,14 +45,14 @@ consumer.private_conversation = consumer.subscriptions.create("Private::Conversa
 		    messages_list.scrollTop(height);
 		}
     },
-    
+
     send_message: function(message) {
         console.log(message);
     	return this.perform('send_message', {
         	message: message
     	});
     },
-    
+
     set_as_seen: function(conv_id) {
         return this.perform('set_as_seen', { conv_id: conv_id });
     }
@@ -81,7 +79,7 @@ $(document).on('click', '.conversation-window, .private-conversation', function(
         latest_message.removeClass('unseen');
         $('#menu-pc' + conv_id).removeClass('unseen-conv');
         calculateUnseenConversations();
-        App.private_conversation.set_as_seen(conv_id);
+        consumer.private_conversation.set_as_seen(conv_id);
     }
 });
 
